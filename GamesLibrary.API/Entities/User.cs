@@ -10,7 +10,7 @@ public class User
     public string Password {  get; set; }
     public string HashedPassword { get; set; }
     public string Description { get; set; }
-    public DateOnly DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
     public int RoleId { get; set; }
     public Role Role { get; set; }

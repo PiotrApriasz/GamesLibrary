@@ -6,7 +6,7 @@ public class Game
     public string Title { get; set; }
     public string Description {  get; set; }
     public decimal Price { get; set; }
-    public DateOnly Premiere { get; set; }
+    public DateTime Premiere { get; set; }
 
     public int PegiId { get; set; }
     public virtual Pegi Pegi { get; set; }
