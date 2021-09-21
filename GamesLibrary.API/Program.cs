@@ -1,5 +1,6 @@
 using GamesLibrary.API;
 using GamesLibrary.API.Entities;
+using GamesLibrary.API.Middleware;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
@@ -16,6 +17,7 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new() { Title = "GamesLibrary.API", Version = "v1" });
 });
 
+builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDbContext<GamesLibraryDbContext>();
 
@@ -27,6 +29,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GamesLibrary.API v1"));
 }
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseHttpsRedirection();
 
