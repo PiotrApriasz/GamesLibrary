@@ -4,7 +4,7 @@ namespace GamesLibrary.API;
 
 public static class GamesLibraryTestSeeder
 {
-    public static void Seed(GamesLibraryDbContext dbContext)
+    public static void Seed(GamesDbContext dbContext)
     {
         if (dbContext.Database.CanConnect())
         {

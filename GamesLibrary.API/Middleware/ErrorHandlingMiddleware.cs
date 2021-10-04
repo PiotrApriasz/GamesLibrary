@@ -20,14 +20,12 @@ public class ErrorHandlingMiddleware : IMiddleware
     public async Task HandleExceptionAsync(HttpContext context, Exception exception, HttpStatusCode statusCode, string message = "")
     {
         context.Response.ContentType = "application/json";
+        context.Response.StatusCode = (int)statusCode;
 
-#pragma warning disable CS8604
-        await context.Response.WriteAsync(new BaseResponse()
+        await context.Response.WriteAsJsonAsync(new BaseResponse()
         {
             Error = true,
-            StatusCode = statusCode,
-            Message = message + exception.Message
-        }.ToString());
-#pragma warning restore CS8604
+            Message = message + exception.StackTrace 
+        });
     }
 }

@@ -3,20 +3,20 @@
 public class Game
 {
     public int Id { get; set; }
-    public string Title { get; set; }
-    public string Description {  get; set; }
-    public decimal Price { get; set; }
-    public DateTime Premiere { get; set; }
+    public string Title { get; set; } = default!;
+    public string Description {  get; set; } = default!;
+    public decimal Price { get; set; } = default!;
+    public DateTime Premiere { get; set; } = default!;
 
     public int PegiId { get; set; }
-    public virtual Pegi Pegi { get; set; }
+    public virtual Pegi Pegi { get; set; } = default!;
 
-    public virtual ICollection<Genre> Genres { get; set; }
+    public virtual ICollection<Genre> Genres { get; set; } = default!;
 
-    public virtual ICollection<User> Users { get; set; }
+    public virtual ICollection<User> Users { get; set; } = default!;
 
     public int CompanyId { get; set; }
-    public virtual Company Company { get; set; }
+    public virtual Company Company { get; set; } = default!;
 
 
 }

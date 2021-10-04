@@ -3,5 +3,5 @@
 public class Pegi
 {
     public int PegiId { get; set; }
-    public string PegiValue { get; set; }
+    public string PegiValue { get; set; } = default!;
 }

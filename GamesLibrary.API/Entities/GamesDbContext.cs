@@ -2,16 +2,16 @@
 
 namespace GamesLibrary.API.Entities;
 
-public class GamesLibraryDbContext : DbContext
+public class GamesDbContext : DbContext
 {
     private readonly string connectionString = "Server=(localdb)\\LocalDb;DataBase=GamesLibraryDb;Trusted_Connection=True;";
 
-    public DbSet<Company>? Companies { get; set; }
-    public DbSet<Game>? Games { get; set; }
-    public DbSet<Genre>? Genres { get; set; }
-    public DbSet<Pegi>? Pegies { get; set; }
-    public DbSet<Role>? Roles { get; set; }
-    public DbSet<User>? Users { get; set; }
+    public DbSet<Company> Companies { get; set; } = default!;
+    public DbSet<Game> Games { get; set; } = default!;
+    public DbSet<Genre> Genres { get; set; } = default!;
+    public DbSet<Pegi> Pegies { get; set; } = default!;
+    public DbSet<Role> Roles { get; set; } = default!;
+    public DbSet<User> Users { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -57,10 +57,6 @@ public class GamesLibraryDbContext : DbContext
 
         modelBuilder.Entity<User>()
            .Property(u => u.Name)
-           .IsRequired();
-
-        modelBuilder.Entity<User>()
-           .Property(u => u.Password)
            .IsRequired();
 
         modelBuilder.Entity<User>()
